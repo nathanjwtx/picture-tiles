@@ -1,9 +1,5 @@
 extends Area2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var result: Dictionary
 var raycastNodeUp: RayCast2D
 var raycastNodeLeft: RayCast2D
@@ -14,30 +10,19 @@ var objCollidedDown: Object
 var objCollidedLeft: Object
 var objCollidedRight: Object
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	raycastNodeUp = get_node("RayCastUp")
 	raycastNodeDown = get_node("RayCastDown")
 	raycastNodeLeft = get_node("RayCastLeft")
 	raycastNodeRight = get_node("RayCastRight")
-	# print(raycastNodeUp.global_position)
-	# print("raycast: %s", self.get_node("RayCast2D2").cast_to)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	update_raycastnodes()
-	# var space_state: = get_world_2d().direct_space_state
-	# result = space_state.intersect_ray(self.position, self.get_node("RayCast2D2").position, [self])
-
-
-	
 
 func _input(event) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
 			if (event.get_position() - self.get_position()).length() < 32:
-				# update_raycastnodes()
-				# print(name, position)
 				if objCollidedUp == null:
 					position = Vector2(global_position.x, global_position.y - 64)
 				elif objCollidedDown == null:
@@ -46,11 +31,6 @@ func _input(event) -> void:
 					position = Vector2(global_position.x - 64, global_position.y)
 				elif objCollidedRight == null:
 					position = Vector2(global_position.x + 64, global_position.y)
-				# print("Up: %s", objCollidedUp)
-				# print("Down: %s", objCollidedDown)
-				# print("Left: %s", objCollidedLeft)
-				# print("Right: %s", objCollidedRight)
-				
 
 func update_raycastnodes() -> void:
 	if raycastNodeUp.is_colliding():
