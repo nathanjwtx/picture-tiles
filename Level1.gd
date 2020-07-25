@@ -21,8 +21,8 @@ func _ready() -> void:
 	set_starting_position()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass
+# func _process(delta: float) -> void:
+# 	update_raycastnodes()
 
 # func _input(event: InputEvent) -> void:
 # 	if event is InputEventMouseButton:
@@ -35,6 +35,17 @@ func set_starting_position() -> void:
 	for t in range(0, tileNames.size()):
 		if tileNames[t].name != "Tile1":
 			tileNames[t].position = initialPos[t]
-			print(tileNames[t].position)
+			# print(tileNames[t].position)
+		# print(tileNames[t].raycastNodeUp.global_position)
 
-			
+# func update_raycastnodes() -> void:
+#     for t in range(0, tileNames.size()):
+		
+		# if tileNames[t].raycastNodeUp.is_colliding():
+		# 	tileNames[t].objCollidedUp = tileNames[t].raycastNodeUp.get_collider()
+		# if tileNames[t].raycastNodeDown.is_colliding():
+		# 	tileNames[t].objCollidedDown = tileNames[t].raycastNodeDown.get_collider()
+		# if tileNames[t].raycastNodeLeft.is_colliding():
+		# 	tileNames[t].objCollidedLeft = tileNames[t].raycastNodeLeft.get_collider()
+		# if tileNames[t].raycastNodeRight.is_colliding():
+		# 	tileNames[t].objCollidedRight = tileNames[t].raycastNodeRight.get_collider()

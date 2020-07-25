@@ -1,24 +1,71 @@
-extends KinematicBody2D
+extends Area2D
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+var result: Dictionary
+var raycastNodeUp: RayCast2D
+var raycastNodeLeft: RayCast2D
+var raycastNodeRight: RayCast2D
+var raycastNodeDown: RayCast2D
+var objCollidedUp: Object
+var objCollidedDown: Object
+var objCollidedLeft: Object
+var objCollidedRight: Object
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	raycastNodeUp = get_node("RayCastUp")
+	raycastNodeDown = get_node("RayCastDown")
+	raycastNodeLeft = get_node("RayCastLeft")
+	raycastNodeRight = get_node("RayCastRight")
+	# print(raycastNodeUp.global_position)
+	# print("raycast: %s", self.get_node("RayCast2D2").cast_to)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	update_raycastnodes()
+	# var space_state: = get_world_2d().direct_space_state
+	# result = space_state.intersect_ray(self.position, self.get_node("RayCast2D2").position, [self])
+
+
+	
 
 func _input(event) -> void:
 	if event is InputEventMouseButton:
 		if event.pressed:
 			if (event.get_position() - self.get_position()).length() < 32:
-				print(self.name)
+				# update_raycastnodes()
+				# print(name, position)
+				if objCollidedUp == null:
+					position = Vector2(global_position.x, global_position.y - 64)
+				elif objCollidedDown == null:
+					position = Vector2(global_position.x, global_position.y + 64)
+				elif objCollidedLeft == null:
+					position = Vector2(global_position.x - 64, global_position.y)
+				elif objCollidedRight == null:
+					position = Vector2(global_position.x + 64, global_position.y)
+				# print("Up: %s", objCollidedUp)
+				# print("Down: %s", objCollidedDown)
+				# print("Left: %s", objCollidedLeft)
+				# print("Right: %s", objCollidedRight)
+				
 
-			# move_and_slide(Vector2(1, 1), Vector2(0, 1))
+func update_raycastnodes() -> void:
+	if raycastNodeUp.is_colliding():
+		objCollidedUp = raycastNodeUp.get_collider()
+	else:
+		objCollidedUp = null
+	if raycastNodeDown.is_colliding():
+		objCollidedDown = raycastNodeDown.get_collider()
+	else:
+		objCollidedDown = null
+	if raycastNodeLeft.is_colliding():
+		objCollidedLeft = raycastNodeLeft.get_collider()
+	else:
+		objCollidedLeft = null
+	if raycastNodeRight.is_colliding():
+		objCollidedRight = raycastNodeRight.get_collider()
+	else:
+		objCollidedRight = null
