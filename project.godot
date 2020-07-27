@@ -18,6 +18,12 @@ _global_script_class_icons={
 config/name="Picture Tiles"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=448
+window/size/height=720
+window/size/resizable=false
+
 [input]
 
 tile_select={

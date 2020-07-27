@@ -15,6 +15,8 @@ func _ready():
 	raycastNodeDown = get_node("RayCastDown")
 	raycastNodeLeft = get_node("RayCastLeft")
 	raycastNodeRight = get_node("RayCastRight")
+	
+
 
 func _process(_delta):
 	update_raycastnodes()
@@ -49,3 +51,5 @@ func update_raycastnodes() -> void:
 		objCollidedRight = raycastNodeRight.get_collider()
 	else:
 		objCollidedRight = null
+
+
