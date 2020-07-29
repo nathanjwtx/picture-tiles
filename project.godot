@@ -31,8 +31,8 @@ window/size/resizable=false
 
 [gdnative]
 
-singletons=[ "res://pythonscript.gdnlib" ]
-singletons_disabled=[ "res://pythonscript.gdnlib" ]
+singletons=[  ]
+singletons_disabled=[  ]
 
 [input]
 

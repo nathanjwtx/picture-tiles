@@ -13,8 +13,6 @@ func _ready():
     pass
     counterNode = get_node("VBoxContainer/HBoxContainer/Moves")
 
-    # tileNode = get_tree().get_root().find_node("2", true, false)
-    # tileNode = get_tree().get_root().find_node("3", true, false)
     my_signals.connect("tile_clicked", self, "update_move_counter")
 
 

@@ -26,12 +26,16 @@ func _input(event) -> void:
             if (event.get_position() - self.get_position()).length() < 32:
                 if objCollidedUp == null:
                     position = Vector2(global_position.x, global_position.y - 64)
+                    my_signals.emit_signal("tile_clicked")
                 elif objCollidedDown == null:
                     position = Vector2(global_position.x, global_position.y + 64)
+                    my_signals.emit_signal("tile_clicked")
                 elif objCollidedLeft == null:
                     position = Vector2(global_position.x - 64, global_position.y)
+                    my_signals.emit_signal("tile_clicked")
                 elif objCollidedRight == null:
                     position = Vector2(global_position.x + 64, global_position.y)
+                    my_signals.emit_signal("tile_clicked")
 
 func update_raycastnodes() -> void:
     if raycastNodeUp.is_colliding():
