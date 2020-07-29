@@ -16,13 +16,23 @@ _global_script_class_icons={
 [application]
 
 config/name="Picture Tiles"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+my_signals="*res://autoload_clicked.gd"
 
 [display]
 
 window/size/width=448
 window/size/height=720
 window/size/resizable=false
+
+[gdnative]
+
+singletons=[ "res://pythonscript.gdnlib" ]
+singletons_disabled=[ "res://pythonscript.gdnlib" ]
 
 [input]
 

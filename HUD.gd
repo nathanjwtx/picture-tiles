@@ -1,23 +1,30 @@
 extends CanvasLayer
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 signal shuffleTiles
+
+var counter: int
+var counterNode: Node
+var tileNode: Node
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+    pass
+    counterNode = get_node("VBoxContainer/HBoxContainer/Moves")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+    # tileNode = get_tree().get_root().find_node("2", true, false)
+    # tileNode = get_tree().get_root().find_node("3", true, false)
+    my_signals.connect("tile_clicked", self, "update_move_counter")
 
 
 func _on_Start_pressed():
-	print("start")
-	emit_signal("shuffleTiles")
+    print("start")
+    counter = 0
+    emit_signal("shuffleTiles")
 
+func update_move_counter() -> void:
+    counter += 1
+    print(counter)
+    counterNode.text = str(counter)
+    
