@@ -15,14 +15,8 @@ namespace PictureTiles
         private Godot.Object _objCollideLeft { get; set; }
         private Godot.Object _objCollideRight { get; set; }
 
-        public DefaultTile()
-        {
-            Console.WriteLine("default tile constructor");
-        }
-        
         public override void _Ready()
         {
-            Console.WriteLine("default ready");
             _raycastNodeUp = GetNode<RayCast2D>("RayCastUp");
             _raycastNodeDown = GetNode<RayCast2D>("RayCastDown");
             _raycastNodeLeft = GetNode<RayCast2D>("RayCastLeft");
@@ -42,18 +36,22 @@ namespace PictureTiles
                     if (_raycastNodeUp.GetCollider() == null)
                     {
                         Position = new Vector2(GlobalPosition.x, GlobalPosition.y - 64);
+                        AutoloadClicked.Instance.EmitSignal("TileClicked");
                     }
                     else if (_raycastNodeDown.GetCollider() == null)
                     {
                         Position = new Vector2(GlobalPosition.x, GlobalPosition.y + 64);
+                        AutoloadClicked.Instance.EmitSignal("TileClicked");
                     }
                     else if (_raycastNodeLeft.GetCollider() == null)
                     {
                         Position = new Vector2(GlobalPosition.x - 64, GlobalPosition.y);
+                        AutoloadClicked.Instance.EmitSignal("TileClicked");
                     }
                     else if (_raycastNodeRight.GetCollider() == null)
                     {
                         Position = new Vector2(GlobalPosition.x + 64, GlobalPosition.y);
+                        AutoloadClicked.Instance.EmitSignal("TileClicked");
                     }
                 }
             }

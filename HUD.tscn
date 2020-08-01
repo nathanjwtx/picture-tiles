@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://HUD.gd" type="Script" id=1]
+[ext_resource path="res://HUD.cs" type="Script" id=1]
 [ext_resource path="res://assets/Kenney Bold.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFontData" id=1]
@@ -57,4 +57,3 @@ margin_bottom = 55.0
 grow_horizontal = 0
 custom_fonts/font = SubResource( 3 )
 text = "0"
-[connection signal="pressed" from="CenterContainer/Start" to="." method="_on_Start_pressed"]
