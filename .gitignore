@@ -1,3 +1,7 @@
+# exported game files
+exports/
+
 .mono/
 .import/
 .vscode/
+.idea/
