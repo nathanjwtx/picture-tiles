@@ -1,17 +1,25 @@
 using System;
 using Godot;
 
+// https://csharpindepth.com/articles/singleton
+
 namespace PictureTiles
 {
-    public class AutoloadClicked : Node
+    public sealed class AutoloadClicked : Node
     {
         [Signal]
         public delegate void TileClicked();
 
-        public static AutoloadClicked Instance = new AutoloadClicked();
+        private static readonly AutoloadClicked _Instance = new AutoloadClicked();
 
         private AutoloadClicked()
+        {}
+        
+        public static AutoloadClicked Instance => _Instance;
+
+        static AutoloadClicked()
         {
+            Console.WriteLine("created");
         }
     }
 }

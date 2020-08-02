@@ -5,20 +5,20 @@ namespace PictureTiles
 {
     public class HUD : CanvasLayer
     {
+        private int _moveCounter;
+        private Label counterNode;
+
         public override void _Ready()
         {
             AutoloadClicked.Instance.Connect("TileClicked", this, "UpdateMoveCounter");
+            counterNode = GetNode<Label>("VBoxContainer/HBoxContainer/Moves");
+            _moveCounter = 0;
         }
 
         private void UpdateMoveCounter()
         {
-            Console.WriteLine("tile clicked");
+            _moveCounter++;
+            counterNode.Text = _moveCounter.ToString();
         }
-
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
     }
 }
