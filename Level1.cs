@@ -16,7 +16,7 @@ namespace PictureTiles
             AutoloadClicked.Instance.Connect("ShuffleTiles", this, "_on_HUD_shuffleTiles");
             _startShuffle = false;
             _lastTileMoved = String.Empty;
-            _shuffleCounter = 1000;
+            _shuffleCounter = 20;
             _rnd = new Random();
         }
 
