@@ -11,6 +11,7 @@ namespace PictureTiles
         public override void _Ready()
         {
             AutoloadClicked.Instance.Connect("TileClicked", this, "UpdateMoveCounter");
+            GetNode<Button>("CenterContainer/Start").Connect("pressed", this, "_on_pressed_Start");
             counterNode = GetNode<Label>("VBoxContainer/HBoxContainer/Moves");
             _moveCounter = 0;
         }
@@ -19,6 +20,11 @@ namespace PictureTiles
         {
             _moveCounter++;
             counterNode.Text = _moveCounter.ToString();
+        }
+
+        private void _on_pressed_Start()
+        {
+            AutoloadClicked.Instance.EmitSignal("ShuffleTiles");
         }
     }
 }

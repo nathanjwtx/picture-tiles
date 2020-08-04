@@ -9,6 +9,9 @@ namespace PictureTiles
     {
         [Signal]
         public delegate void TileClicked();
+        
+        [Signal]
+        public delegate void ShuffleTiles();
 
         private static readonly AutoloadClicked _Instance = new AutoloadClicked();
 
