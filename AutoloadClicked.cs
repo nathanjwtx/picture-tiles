@@ -10,6 +10,9 @@ namespace PictureTiles
         [Signal]
         public delegate void TileClicked();
 
+        [Signal]
+        public delegate void ShuffleTiles();
+
         private static readonly AutoloadClicked _Instance = new AutoloadClicked();
 
         private AutoloadClicked()
@@ -19,7 +22,7 @@ namespace PictureTiles
 
         static AutoloadClicked()
         {
-            Console.WriteLine("created");
+            Console.WriteLine("autoload singleton created");
         }
     }
 }
