@@ -12,6 +12,7 @@ namespace PictureTiles
         {
             AutoloadClicked.Instance.Connect("TileClicked", this, "UpdateMoveCounter");
             GetNode<Button>("CenterContainer/Start").Connect("pressed", this, "_on_pressed_Start");
+            GetNode<CenterContainer>("SolvedContainer").Visible = false;
             counterNode = GetNode<Label>("VBoxContainer/HBoxContainer/Moves");
             _moveCounter = 0;
         }
