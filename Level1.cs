@@ -10,14 +10,23 @@ namespace PictureTiles
         private string _lastTileMoved;
         private int _shuffleCounter;
         private Random _rnd;
+        private Dictionary<string, Vector2> _initialPositions;
 
         public override void _Ready()
         {
             AutoloadClicked.Instance.Connect("ShuffleTiles", this, "_on_HUD_shuffleTiles");
             _startShuffle = false;
             _lastTileMoved = String.Empty;
-            _shuffleCounter = 20;
+            _shuffleCounter = 5;
             _rnd = new Random();
+            _initialPositions = new Dictionary<string, Vector2>();
+
+            // setting dictionary of initial tile locations for checking if puzzle solved
+            foreach (Node child in GetNode<Node>("Tiles").GetChildren())
+            {
+                Area2D temp = (Area2D) child;
+                _initialPositions.Add(temp.Name, temp.Position);
+            }
         }
 
         public override void _PhysicsProcess(float delta)
@@ -25,16 +34,32 @@ namespace PictureTiles
             base._PhysicsProcess(delta);
             if (_startShuffle && _shuffleCounter >= 0)
             {
-                _setStartingPosition();
+                SetStartingPosition();
+            }
+
+            if (_shuffleCounter == -1 && CheckForSolved())
+            {
+                GetParent().GetNode<CenterContainer>("HUD/SolvedContainer").Visible = true;
             }
         }
 
-        private void _on_HUD_shuffleTiles()
+        private bool CheckForSolved()
         {
-            _startShuffle = true;
+            foreach (Node child in GetNode<Node>("Tiles").GetChildren())
+            {
+                Area2D temp = (Area2D) child;
+                if (_initialPositions[temp.Name] != temp.Position)
+                {
+                    return false;
+                }
+            }
+
+            // stops the tiles from being clicked once solved
+            AutoloadClicked.Solved = true;
+            return true;
         }
 
-        private void _setStartingPosition()
+        private void SetStartingPosition()
         {
             List<Tuple<string, Vector2>> mt = new List<Tuple<string, Vector2>>();
                 
@@ -72,5 +97,14 @@ namespace PictureTiles
             _lastTileMoved = selectedTile.Item1;
             _shuffleCounter--;
         }
+
+        #region Signals
+
+        private void _on_HUD_shuffleTiles()
+        {
+            _startShuffle = true;
+        }
+
+        #endregion
     }
 }
