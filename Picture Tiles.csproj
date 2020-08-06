@@ -57,7 +57,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="**/*.cs" Exclude=".mono;ClassLibrary1/**" />
+    <Compile Include="**/*.cs" Exclude=".mono/**;ClassLibrary1/**" />
     <Content Include="**/*.tscn" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

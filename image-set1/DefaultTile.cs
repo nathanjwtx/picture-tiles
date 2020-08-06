@@ -29,7 +29,7 @@ namespace PictureTiles
 
         public override void _Input(InputEvent @event)
         {
-            if (@event is InputEventMouseButton eventMouseButton && eventMouseButton.Pressed)
+            if (!AutoloadClicked.Solved && @event is InputEventMouseButton eventMouseButton && eventMouseButton.Pressed)
             {
                 if ((eventMouseButton.Position - Position).Length() < 32)
                 {

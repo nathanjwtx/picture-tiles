@@ -17,7 +17,7 @@ namespace PictureTiles
             AutoloadClicked.Instance.Connect("ShuffleTiles", this, "_on_HUD_shuffleTiles");
             _startShuffle = false;
             _lastTileMoved = String.Empty;
-            _shuffleCounter = 2;
+            _shuffleCounter = 5;
             _rnd = new Random();
             _initialPositions = new Dictionary<string, Vector2>();
 
@@ -37,10 +37,8 @@ namespace PictureTiles
                 SetStartingPosition();
             }
 
-            // Console.WriteLine(_shuffleCounter);
             if (_shuffleCounter == -1 && CheckForSolved())
             {
-                Console.WriteLine("solved");
                 GetParent().GetNode<CenterContainer>("HUD/SolvedContainer").Visible = true;
             }
         }
@@ -55,6 +53,9 @@ namespace PictureTiles
                     return false;
                 }
             }
+
+            // stops the tiles from being clicked once solved
+            AutoloadClicked.Solved = true;
             return true;
         }
 

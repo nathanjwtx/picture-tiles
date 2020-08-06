@@ -13,6 +13,9 @@ namespace PictureTiles
         [Signal]
         public delegate void ShuffleTiles();
 
+        // used to stop tiles from being moved once solved
+        public static bool Solved;
+
         private static readonly AutoloadClicked _Instance = new AutoloadClicked();
 
         private AutoloadClicked()
@@ -22,6 +25,7 @@ namespace PictureTiles
 
         static AutoloadClicked()
         {
+            Solved = false;
             Console.WriteLine("created");
         }
     }
