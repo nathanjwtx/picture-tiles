@@ -29,29 +29,29 @@ namespace PictureTiles
 
         public override void _Input(InputEvent @event)
         {
-            if (!AutoloadClicked.Solved && @event is InputEventMouseButton eventMouseButton && eventMouseButton.Pressed)
+            if (!AutoLoadGlobals.Solved && @event is InputEventMouseButton eventMouseButton && eventMouseButton.Pressed)
             {
                 if ((eventMouseButton.Position - Position).Length() < 32)
                 {
                     if (_raycastNodeUp.GetCollider() == null)
                     {
                         Position = new Vector2(GlobalPosition.x, GlobalPosition.y - 64);
-                        AutoloadClicked.Instance.EmitSignal("TileClicked");
+                        AutoLoadGlobals.Instance.EmitSignal("TileClicked");
                     }
                     else if (_raycastNodeDown.GetCollider() == null)
                     {
                         Position = new Vector2(GlobalPosition.x, GlobalPosition.y + 64);
-                        AutoloadClicked.Instance.EmitSignal("TileClicked");
+                        AutoLoadGlobals.Instance.EmitSignal("TileClicked");
                     }
                     else if (_raycastNodeLeft.GetCollider() == null)
                     {
                         Position = new Vector2(GlobalPosition.x - 64, GlobalPosition.y);
-                        AutoloadClicked.Instance.EmitSignal("TileClicked");
+                        AutoLoadGlobals.Instance.EmitSignal("TileClicked");
                     }
                     else if (_raycastNodeRight.GetCollider() == null)
                     {
                         Position = new Vector2(GlobalPosition.x + 64, GlobalPosition.y);
-                        AutoloadClicked.Instance.EmitSignal("TileClicked");
+                        AutoLoadGlobals.Instance.EmitSignal("TileClicked");
                     }
                 }
             }

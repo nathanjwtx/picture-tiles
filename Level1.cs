@@ -14,7 +14,7 @@ namespace PictureTiles
 
         public override void _Ready()
         {
-            AutoloadClicked.Instance.Connect("ShuffleTiles", this, "_on_HUD_shuffleTiles");
+            AutoLoadGlobals.Instance.Connect("ShuffleTiles", this, "_on_HUD_shuffleTiles");
             _startShuffle = false;
             _lastTileMoved = String.Empty;
             _shuffleCounter = 5;
@@ -55,7 +55,7 @@ namespace PictureTiles
             }
 
             // stops the tiles from being clicked once solved
-            AutoloadClicked.Solved = true;
+            AutoLoadGlobals.Solved = true;
             return true;
         }
 

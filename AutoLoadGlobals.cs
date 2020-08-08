@@ -5,7 +5,7 @@ using Godot;
 
 namespace PictureTiles
 {
-    public sealed class AutoloadClicked : Node
+    public sealed class AutoLoadGlobals : Node
     {
         [Signal]
         public delegate void TileClicked();
@@ -13,17 +13,18 @@ namespace PictureTiles
         [Signal]
         public delegate void ShuffleTiles();
 
+        public static string TitleScene = "res://Title.tscn";
         // used to stop tiles from being moved once solved
         public static bool Solved;
 
-        private static readonly AutoloadClicked _Instance = new AutoloadClicked();
+        private static readonly AutoLoadGlobals _Instance = new AutoLoadGlobals();
 
-        private AutoloadClicked()
+        private AutoLoadGlobals()
         {}
         
-        public static AutoloadClicked Instance => _Instance;
+        public static AutoLoadGlobals Instance => _Instance;
 
-        static AutoloadClicked()
+        static AutoLoadGlobals()
         {
             Solved = false;
             Console.WriteLine("created");

@@ -21,7 +21,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-AutoloadClicked="*res://AutoloadClicked.cs"
+AutoLoadGlobals="*res://AutoLoadGlobals.cs"
 
 [display]
 
