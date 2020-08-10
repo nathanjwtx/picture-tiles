@@ -4,7 +4,7 @@ using Godot;
 
 namespace PictureTiles
 {
-    public class Level1 : Node2D
+    public class ThreeByThree : Node2D
     {
         private bool _startShuffle;
         private string _lastTileMoved;

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://image-set1/Tile2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://image-set1/Tile5.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Level1.cs" type="Script" id=3]
+[ext_resource path="res://ThreeByThree.cs" type="Script" id=3]
 [ext_resource path="res://image-set1/Tile4.tscn" type="PackedScene" id=4]
 [ext_resource path="res://image-set1/Tile3.tscn" type="PackedScene" id=5]
 [ext_resource path="res://image-set1/Tile6.tscn" type="PackedScene" id=6]
@@ -11,7 +11,7 @@
 [ext_resource path="res://image-set1/Tile9.tscn" type="PackedScene" id=9]
 [ext_resource path="res://image-set1/Boundary.tscn" type="PackedScene" id=11]
 
-[node name="Level1" type="Node2D"]
+[node name="ThreeByThree" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Tiles" type="Node" parent="."]

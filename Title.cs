@@ -1,18 +1,33 @@
 using Godot;
-using System;
+using PictureTiles;
 
 public class Title : Node
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
-
-    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        
+        GetNode<Button>("Three").Connect("pressed", this, nameof(LevelPressed), 
+            new Godot.Collections.Array(){AutoLoadGlobals.ThreeByThree} );
+        GetNode<Button>("Four").Connect("pressed", this, nameof(LevelPressed),
+            new Godot.Collections.Array() {AutoLoadGlobals.FourByFour});
     }
 
+    private void LevelPressed(string level)
+    {
+        if (level == AutoLoadGlobals.ThreeByThree)
+        {
+            GetNode<Button>("Four").Disabled = true;
+        }
+        else
+        {
+            GetNode<Button>("Three").Disabled = true;
+        }
+
+        GD.Print(level);
+        GetTree().ChangeScene(AutoLoadGlobals.MainScene);
+        AutoLoadGlobals.LevelToLoad = level;
+
+    }
+    
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 //  public override void _Process(float delta)
 //  {
