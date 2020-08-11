@@ -1,4 +1,3 @@
-using System;
 using Godot;
 
 namespace PictureTiles
@@ -10,8 +9,8 @@ namespace PictureTiles
 
         public override void _Ready()
         {
-            AutoLoadGlobals.Instance.Connect("TileClicked", this, "UpdateMoveCounter");
-            GetNode<Button>("CenterContainer/Start").Connect("pressed", this, "_on_pressed_Start");
+            AutoLoadGlobals.Instance.Connect("TileClicked", this, nameof(UpdateMoveCounter));
+            GetNode<Button>("CenterContainer/Start").Connect("pressed", this, nameof(OnPressedStart));
             GetNode<CenterContainer>("SolvedContainer").Visible = false;
             counterNode = GetNode<Label>("VBoxContainer/HBoxContainer/Moves");
             _moveCounter = 0;
@@ -22,8 +21,8 @@ namespace PictureTiles
             _moveCounter++;
             counterNode.Text = _moveCounter.ToString();
         }
-
-        private void _on_pressed_Start()
+        
+        private void OnPressedStart()
         {
             AutoLoadGlobals.Instance.EmitSignal("ShuffleTiles");
         }

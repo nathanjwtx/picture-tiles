@@ -1,4 +1,3 @@
-using System;
 using Godot;
 
 namespace PictureTiles
@@ -10,10 +9,6 @@ namespace PictureTiles
         private RayCast2D _raycastNodeDown { get; set; }
         private RayCast2D _raycastNodeLeft { get; set; }
         private RayCast2D _raycastNodeRight { get; set; }
-        private Godot.Object _objCollideUp { get; set; }
-        private Godot.Object _objCollideDown { get; set; }
-        private Godot.Object _objCollideLeft { get; set; }
-        private Godot.Object _objCollideRight { get; set; }
 
         public override void _Ready()
         {
@@ -21,10 +16,6 @@ namespace PictureTiles
             _raycastNodeDown = GetNode<RayCast2D>("RayCastDown");
             _raycastNodeLeft = GetNode<RayCast2D>("RayCastLeft");
             _raycastNodeRight = GetNode<RayCast2D>("RayCastRight");
-            _objCollideUp = new Godot.Object();
-            _objCollideDown = new Godot.Object();
-            _objCollideLeft = new Godot.Object();
-            _objCollideRight = new Godot.Object();
         }
 
         public override void _Input(InputEvent @event)

@@ -47,6 +47,10 @@ tile_select={
 2d_physics/layer_1="tiles"
 2d_physics/layer_2="boundary"
 
+[mono]
+
+profiler/enabled=true
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

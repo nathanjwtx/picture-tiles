@@ -34,7 +34,6 @@ namespace PictureTiles
         static AutoLoadGlobals()
         {
             Solved = false;
-            Console.WriteLine("created");
         }
     }
 }
