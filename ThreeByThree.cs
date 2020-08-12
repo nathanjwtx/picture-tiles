@@ -17,7 +17,6 @@ namespace PictureTiles
             AutoLoadGlobals.Instance.Connect("ShuffleTiles", this, "_on_HUD_shuffleTiles");
             _startShuffle = false;
             _lastTileMoved = String.Empty;
-            _shuffleCounter = 5;
             _rnd = new Random();
             _initialPositions = new Dictionary<string, Vector2>();
 
@@ -102,6 +101,7 @@ namespace PictureTiles
 
         private void _on_HUD_shuffleTiles()
         {
+            _shuffleCounter = AutoLoadGlobals.Instance.InitialShuffles;
             _startShuffle = true;
         }
 

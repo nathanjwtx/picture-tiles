@@ -22,8 +22,13 @@ namespace PictureTiles
         // used to stop tiles from being moved once solved
         public static bool Solved;
 
+        // used to pass which level was selected to the main scene
         public static string LevelToLoad;
+        
+        // number of initial shuffles to make
+        public int InitialShuffles = 10;
 
+        #region Singleton Setup
         private static readonly AutoLoadGlobals _Instance = new AutoLoadGlobals();
 
         private AutoLoadGlobals()
@@ -35,5 +40,6 @@ namespace PictureTiles
         {
             Solved = false;
         }
+        #endregion
     }
 }

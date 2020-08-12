@@ -6,6 +6,7 @@ namespace PictureTiles
     {
         private int _moveCounter;
         private Label counterNode;
+        private Label _shuffleLabel;
 
         public override void _Ready()
         {
@@ -14,6 +15,7 @@ namespace PictureTiles
             GetNode<CenterContainer>("SolvedContainer").Visible = false;
             counterNode = GetNode<Label>("VBoxContainer/HBoxContainer/Moves");
             _moveCounter = 0;
+            _shuffleLabel = GetNode<Label>("ShuffleMoves/Shuffles");
         }
 
         private void UpdateMoveCounter()
@@ -25,6 +27,12 @@ namespace PictureTiles
         private void OnPressedStart()
         {
             AutoLoadGlobals.Instance.EmitSignal("ShuffleTiles");
+        }
+
+        private void _on_ShuffleSlider_value_changed(float value)
+        {
+            _shuffleLabel.Text = value.ToString();
+            AutoLoadGlobals.Instance.InitialShuffles = (int) value;
         }
     }
 }

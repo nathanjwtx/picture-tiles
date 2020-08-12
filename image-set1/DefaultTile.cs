@@ -2,7 +2,6 @@ using Godot;
 
 namespace PictureTiles
 {
-    
     public class DefaultTile : Area2D
     {
         private RayCast2D _raycastNodeUp { get; set; }

@@ -26,7 +26,6 @@ namespace PictureTiles
             GD.Print(level);
             GetTree().ChangeScene(AutoLoadGlobals.MainScene);
             AutoLoadGlobals.LevelToLoad = level;
-
         }
     }
 }
