@@ -1,0 +1,78 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://FourByFour/TileSet4_1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://FourByFour/TileSet4_2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ThreeByThree.cs" type="Script" id=3]
+[ext_resource path="res://FourByFour/TileSet4_3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://FourByFour/TileSet4_4.tscn" type="PackedScene" id=5]
+[ext_resource path="res://FourByFour/TileSet4_5.tscn" type="PackedScene" id=6]
+[ext_resource path="res://FourByFour/TileSet4_6.tscn" type="PackedScene" id=7]
+[ext_resource path="res://FourByFour/TileSet4_13.tscn" type="PackedScene" id=8]
+[ext_resource path="res://FourByFour/TileSet4_11.tscn" type="PackedScene" id=9]
+[ext_resource path="res://FourByFour/TileSet4_12.tscn" type="PackedScene" id=10]
+[ext_resource path="res://DefaultScene/Boundary.tscn" type="PackedScene" id=11]
+[ext_resource path="res://FourByFour/TileSet4_14.tscn" type="PackedScene" id=12]
+[ext_resource path="res://FourByFour/TileSet4_16.tscn" type="PackedScene" id=13]
+[ext_resource path="res://FourByFour/TileSet4_15.tscn" type="PackedScene" id=14]
+[ext_resource path="res://FourByFour/TileSet4_8.tscn" type="PackedScene" id=15]
+[ext_resource path="res://FourByFour/TileSet4_7.tscn" type="PackedScene" id=16]
+[ext_resource path="res://FourByFour/TileSet4_9.tscn" type="PackedScene" id=17]
+[ext_resource path="res://FourByFour/TileSet4_10.tscn" type="PackedScene" id=18]
+
+[node name="FourByFour" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Tiles" type="Node" parent="."]
+
+[node name="TileSet4_1" parent="Tiles" instance=ExtResource( 1 )]
+position = Vector2( 128, 160 )
+
+[node name="TileSet4_2" parent="Tiles" instance=ExtResource( 2 )]
+position = Vector2( 192, 160 )
+
+[node name="TileSet4_3" parent="Tiles" instance=ExtResource( 4 )]
+position = Vector2( 256, 160 )
+
+[node name="TileSet4_4" parent="Tiles" instance=ExtResource( 5 )]
+position = Vector2( 320, 160 )
+
+[node name="TileSet4_5" parent="Tiles" instance=ExtResource( 6 )]
+position = Vector2( 128, 224 )
+
+[node name="TileSet4_6" parent="Tiles" instance=ExtResource( 7 )]
+position = Vector2( 192, 224 )
+
+[node name="TileSet4_7" parent="Tiles" instance=ExtResource( 16 )]
+position = Vector2( 256, 224 )
+
+[node name="TileSet4_8" parent="Tiles" instance=ExtResource( 15 )]
+position = Vector2( 320, 224 )
+
+[node name="TileSet4_9" parent="Tiles" instance=ExtResource( 17 )]
+position = Vector2( 128, 288 )
+
+[node name="TileSet4_10" parent="Tiles" instance=ExtResource( 18 )]
+position = Vector2( 192, 288 )
+
+[node name="TileSet4_11" parent="Tiles" instance=ExtResource( 9 )]
+position = Vector2( 256, 288 )
+
+[node name="TileSet4_12" parent="Tiles" instance=ExtResource( 10 )]
+position = Vector2( 320, 288 )
+
+[node name="TileSet4_13" parent="Tiles" instance=ExtResource( 8 )]
+position = Vector2( 128, 352 )
+
+[node name="TileSet4_14" parent="Tiles" instance=ExtResource( 12 )]
+position = Vector2( 192, 352 )
+
+[node name="TileSet4_15" parent="Tiles" instance=ExtResource( 14 )]
+position = Vector2( 256, 352 )
+
+[node name="TileSet4_16" parent="Tiles" instance=ExtResource( 13 )]
+position = Vector2( 320, 352 )
+
+[node name="TileMap4" parent="." instance=ExtResource( 11 )]
+cell_size = Vector2( 32, 32 )
+collision_mask = 1
+tile_data = PoolIntArray( 131073, 0, 0, 131075, 0, 0, 131077, 0, 0, 131079, 0, 0, 131081, 0, 0, 131083, 0, 0, 262145, 0, 0, 262155, 0, 0, 393217, 0, 0, 393227, 0, 0, 524289, 0, 0, 524299, 0, 0, 655361, 0, 0, 655371, 0, 0, 786433, 0, 0, 786435, 0, 0, 786437, 0, 0, 786439, 0, 0, 786441, 0, 0, 786443, 0, 0 )

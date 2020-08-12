@@ -10,8 +10,12 @@ namespace PictureTiles
 
         public override void _Ready()
         {
+            // Connect signals
             AutoLoadGlobals.Instance.Connect("TileClicked", this, nameof(UpdateMoveCounter));
             GetNode<Button>("CenterContainer/Start").Connect("pressed", this, nameof(OnPressedStart));
+            GetNode<HSlider>("SliderContainer/ShuffleSlider")
+                .Connect("value_changed", this, nameof(OnShuffleSliderValueChanged));
+            
             GetNode<CenterContainer>("SolvedContainer").Visible = false;
             counterNode = GetNode<Label>("VBoxContainer/HBoxContainer/Moves");
             _moveCounter = 0;
@@ -29,7 +33,7 @@ namespace PictureTiles
             AutoLoadGlobals.Instance.EmitSignal("ShuffleTiles");
         }
 
-        private void _on_ShuffleSlider_value_changed(float value)
+        private void OnShuffleSliderValueChanged(float value)
         {
             _shuffleLabel.Text = value.ToString();
             AutoLoadGlobals.Instance.InitialShuffles = (int) value;
