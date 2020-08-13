@@ -7,7 +7,7 @@ namespace PictureTiles
         public override void _Ready()
         {
             GetNode<Button>("Three").Connect("pressed", this, nameof(LevelPressed), 
-                new Godot.Collections.Array(){AutoLoadGlobals.ThreeByThree} );
+                new Godot.Collections.Array() {AutoLoadGlobals.ThreeByThree} );
             GetNode<Button>("Four").Connect("pressed", this, nameof(LevelPressed),
                 new Godot.Collections.Array() {AutoLoadGlobals.FourByFour});
         }
@@ -16,10 +16,12 @@ namespace PictureTiles
         {
             if (level == AutoLoadGlobals.ThreeByThree)
             {
+                AutoLoadGlobals.InitialShuffles = 10;
                 GetNode<Button>("Four").Disabled = true;
             }
             else
             {
+                AutoLoadGlobals.InitialShuffles = 20;
                 GetNode<Button>("Three").Disabled = true;
             }
 

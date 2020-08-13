@@ -4,7 +4,7 @@ using Godot;
 
 namespace PictureTiles
 {
-    public class ThreeByThree : Node2D
+    public class PuzzleEngine : Node2D
     {
         private bool _startShuffle;
         private string _lastTileMoved;
@@ -101,7 +101,7 @@ namespace PictureTiles
 
         private void _on_HUD_shuffleTiles()
         {
-            _shuffleCounter = AutoLoadGlobals.Instance.InitialShuffles;
+            _shuffleCounter = AutoLoadGlobals.InitialShuffles;
             _startShuffle = true;
         }
 
