@@ -1,4 +1,3 @@
-using System;
 using Godot;
 
 namespace PictureTiles
@@ -7,14 +6,23 @@ namespace PictureTiles
     {
         private int _moveCounter;
         private Label counterNode;
+        private Label _shuffleLabel;
+        private HSlider _shuffleSlider;
 
         public override void _Ready()
         {
-            AutoloadClicked.Instance.Connect("TileClicked", this, "UpdateMoveCounter");
-            GetNode<Button>("CenterContainer/Start").Connect("pressed", this, "_on_pressed_Start");
+            // Connect signals
+            AutoLoadGlobals.Instance.Connect("TileClicked", this, nameof(UpdateMoveCounter));
+            GetNode<Button>("CenterContainer/Start").Connect("pressed", this, nameof(OnPressedStart));
+            _shuffleSlider = GetNode<HSlider>("SliderContainer/ShuffleSlider");
+            _shuffleSlider.MinValue = AutoLoadGlobals.InitialShuffles;
+            _shuffleSlider.Connect("value_changed", this, nameof(OnShuffleSliderValueChanged));
+            
             GetNode<CenterContainer>("SolvedContainer").Visible = false;
             counterNode = GetNode<Label>("VBoxContainer/HBoxContainer/Moves");
             _moveCounter = 0;
+            _shuffleLabel = GetNode<Label>("ShuffleMoves/Shuffles");
+            _shuffleLabel.Text = AutoLoadGlobals.InitialShuffles.ToString();
         }
 
         private void UpdateMoveCounter()
@@ -22,10 +30,16 @@ namespace PictureTiles
             _moveCounter++;
             counterNode.Text = _moveCounter.ToString();
         }
-
-        private void _on_pressed_Start()
+        
+        private void OnPressedStart()
         {
-            AutoloadClicked.Instance.EmitSignal("ShuffleTiles");
+            AutoLoadGlobals.Instance.EmitSignal("ShuffleTiles");
+        }
+
+        private void OnShuffleSliderValueChanged(float value)
+        {
+            _shuffleLabel.Text = value.ToString();
+            AutoLoadGlobals.InitialShuffles = (int) value;
         }
     }
 }

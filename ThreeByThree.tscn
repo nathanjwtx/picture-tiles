@@ -1,0 +1,45 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://ThreeByThree/Tile2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ThreeByThree/Tile5.tscn" type="PackedScene" id=2]
+[ext_resource path="res://PuzzleEngine.cs" type="Script" id=3]
+[ext_resource path="res://ThreeByThree/Tile4.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ThreeByThree/Tile3.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ThreeByThree/Tile6.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ThreeByThree/Tile7.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ThreeByThree/Tile8.tscn" type="PackedScene" id=8]
+[ext_resource path="res://ThreeByThree/Tile9.tscn" type="PackedScene" id=9]
+[ext_resource path="res://DefaultScene/Boundary.tscn" type="PackedScene" id=11]
+
+[node name="ThreeByThree" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Tiles" type="Node" parent="."]
+
+[node name="2" parent="Tiles" instance=ExtResource( 1 )]
+position = Vector2( 224, 224 )
+
+[node name="3" parent="Tiles" instance=ExtResource( 5 )]
+position = Vector2( 288, 224 )
+
+[node name="4" parent="Tiles" instance=ExtResource( 4 )]
+position = Vector2( 160, 288 )
+
+[node name="5" parent="Tiles" instance=ExtResource( 2 )]
+position = Vector2( 224, 288 )
+
+[node name="6" parent="Tiles" instance=ExtResource( 6 )]
+position = Vector2( 288, 288 )
+
+[node name="7" parent="Tiles" instance=ExtResource( 7 )]
+position = Vector2( 160, 352 )
+
+[node name="8" parent="Tiles" instance=ExtResource( 8 )]
+position = Vector2( 224, 352 )
+
+[node name="9" parent="Tiles" instance=ExtResource( 9 )]
+position = Vector2( 288, 352 )
+
+[node name="TileMap" parent="." instance=ExtResource( 11 )]
+collision_mask = 1
+tile_data = PoolIntArray( 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 196609, 0, 0, 196613, 0, 0, 262145, 0, 0, 262149, 0, 0, 327681, 0, 0, 327685, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0 )

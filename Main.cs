@@ -1,11 +1,13 @@
 using Godot;
-using System;
 
-public class Main : Node
+namespace PictureTiles
 {
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+    public class Main : Node
+    {
+        public override void _Ready()
+        {
+            PackedScene level = (PackedScene) ResourceLoader.Load(AutoLoadGlobals.LevelToLoad);
+            AddChild(level.Instance());
+        }
+    }
 }

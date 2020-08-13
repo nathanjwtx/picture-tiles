@@ -16,12 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Picture Tiles"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Launch.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-AutoloadClicked="*res://AutoloadClicked.cs"
+AutoLoadGlobals="*res://AutoLoadGlobals.cs"
 
 [display]
 
@@ -46,6 +46,10 @@ tile_select={
 
 2d_physics/layer_1="tiles"
 2d_physics/layer_2="boundary"
+
+[mono]
+
+profiler/enabled=true
 
 [rendering]
 
