@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Click2-Sebastian-759472264.wav-9a5e3501d04589530705d9b41002d466.sample"
+
+[deps]
+
+source_file="res://assets/Click2-Sebastian-759472264.wav"
+dest_files=[ "res://.import/Click2-Sebastian-759472264.wav-9a5e3501d04589530705d9b41002d466.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
