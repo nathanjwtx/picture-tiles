@@ -1,22 +1,6 @@
-using Godot;
-using System;
-using PictureTiles;
-
-public class TileSet4_1 : DefaultTile
+namespace PictureTiles
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
-
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
+    public class TileSet4_1 : DefaultTile
     {
-        
     }
-
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
 }
