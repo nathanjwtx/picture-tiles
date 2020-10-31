@@ -17,7 +17,7 @@ namespace PictureTiles
             _raycastNodeLeft = GetNode<RayCast2D>("RayCastLeft");
             _raycastNodeRight = GetNode<RayCast2D>("RayCastRight");
             StreamPlayer = GetNode<AudioStreamPlayer>("Audio/ClickAudio");
-            StreamPlayer.Connect("finished", this, nameof(OnAudioFinished));
+            // StreamPlayer.Connect("finished", this, nameof(OnAudioFinished));
         }
 
         public override void _Input(InputEvent @event)
