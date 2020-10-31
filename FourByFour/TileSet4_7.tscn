@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://DefaultScene/DefaultTile.cs" type="Script" id=1]
+[ext_resource path="res://FourByFour/TileSet4_7.cs" type="Script" id=1]
 [ext_resource path="res://assets/spiral-dots-4x4.jpg" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
