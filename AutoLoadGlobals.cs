@@ -27,7 +27,7 @@ namespace PictureTiles
         
         // number of initial shuffles to make
         public static int InitialShuffles;
-
+        
         #region Singleton Setup
         private static readonly AutoLoadGlobals _Instance = new AutoLoadGlobals();
 

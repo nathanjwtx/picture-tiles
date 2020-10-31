@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/Click2-Sebastian-759472264.wav" type="AudioStream" id=1]
+[ext_resource path="res://ClickAudio.cs" type="Script" id=2]
+
+[node name="Audio" type="Node"]
+script = ExtResource( 2 )
+
+[node name="ClickAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )

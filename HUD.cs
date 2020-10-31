@@ -13,7 +13,9 @@ namespace PictureTiles
         {
             // Connect signals
             AutoLoadGlobals.Instance.Connect("TileClicked", this, nameof(UpdateMoveCounter));
-            GetNode<Button>("CenterContainer/Start").Connect("pressed", this, nameof(OnPressedStart));
+            GetNode<Button>("Start").Connect("pressed", this, nameof(OnPressedStart));
+            GetNode<Button>("Main").Connect("pressed", this, nameof(OnPressedMain));
+            // GetNode<Button>("CenterContainer/Start").Connect("pressed", this, nameof(OnPressedStart));
             _shuffleSlider = GetNode<HSlider>("SliderContainer/ShuffleSlider");
             _shuffleSlider.MinValue = AutoLoadGlobals.InitialShuffles;
             _shuffleSlider.Connect("value_changed", this, nameof(OnShuffleSliderValueChanged));
@@ -36,6 +38,11 @@ namespace PictureTiles
             AutoLoadGlobals.Instance.EmitSignal("ShuffleTiles");
         }
 
+        private void OnPressedMain()
+        {
+            GetTree().ChangeScene(AutoLoadGlobals.TitleScene);
+        }
+        
         private void OnShuffleSliderValueChanged(float value)
         {
             _shuffleLabel.Text = value.ToString();
