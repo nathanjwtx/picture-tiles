@@ -4,9 +4,10 @@ using Godot;
 
 namespace PictureTiles
 {
-    public class PuzzleEngine : Node2D
+    public class PuzzleEngine : Node
     {
         private bool _startShuffle;
+        private bool _solved = false;
         private string _lastTileMoved;
         private int _shuffleCounter;
         private Random _rnd;
@@ -14,7 +15,7 @@ namespace PictureTiles
 
         public override void _Ready()
         {
-            AutoLoadGlobals.Instance.Connect("ShuffleTiles", this, "_on_HUD_shuffleTiles");
+            AutoLoadGlobals.Instance.Connect("ShuffleTiles", this, nameof(_on_HUD_shuffleTiles));
             _startShuffle = false;
             _lastTileMoved = String.Empty;
             _rnd = new Random();
@@ -36,9 +37,10 @@ namespace PictureTiles
                 SetStartingPosition();
             }
 
-            if (_shuffleCounter == -1 && CheckForSolved())
+            if (_shuffleCounter == -1 && CheckForSolved() && !_solved)
             {
                 GetParent().GetNode<CenterContainer>("HUD/SolvedContainer").Visible = true;
+                _solved = true;
             }
         }
 
@@ -103,8 +105,9 @@ namespace PictureTiles
         {
             _shuffleCounter = AutoLoadGlobals.InitialShuffles;
             _startShuffle = true;
+            _solved = false;
         }
-
+            
         #endregion
     }
 }
