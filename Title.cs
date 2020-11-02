@@ -25,7 +25,6 @@ namespace PictureTiles
                 GetNode<Button>("Three").Disabled = true;
             }
 
-            // GD.Print(level);
             GetTree().ChangeScene(AutoLoadGlobals.MainScene);
             AutoLoadGlobals.LevelToLoad = level;
         }
