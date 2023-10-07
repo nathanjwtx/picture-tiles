@@ -2,6 +2,6 @@ using Godot;
 using System;
 using PictureTiles;
 
-public class TileSet4_14 : DefaultTile
+public partial class TileSet4_14 : DefaultTile
 {
 }

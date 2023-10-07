@@ -1,23 +1,7 @@
-﻿<Project Sdk="Godot.NET.Sdk/3.2.3">
+<Project Sdk="Godot.NET.Sdk/4.2.0-dev.5">
   <PropertyGroup>
-    <ProjectGuid>{FE1C4BE2-9996-4611-B22E-BD9421060E39}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>PictureTiles</RootNamespace>
-    <AssemblyName>Picture Tiles</AssemblyName>
-    <GodotProjectGeneratorVersion>1.0.0.0</GodotProjectGeneratorVersion>
-    <TargetFramework>net472</TargetFramework>
-    <!--The following properties were overriden during migration to prevent errors.
-    Enabling them may require other manual changes to the project and its files.-->
-    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <Deterministic>false</Deterministic>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="**/*.cs" Exclude=".mono/**;ClassLibrary1/**" />
-    <Content Include="**/*.tscn" />
-    <Content Include="**/*.cs" />
-  </ItemGroup>
 </Project>

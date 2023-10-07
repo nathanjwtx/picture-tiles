@@ -6,17 +6,16 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
+config_version=5
 
-_global_script_classes=[  ]
-_global_script_class_icons={
-
-}
+_global_script_classes=[]
+_global_script_class_icons={}
 
 [application]
 
 config/name="Picture Tiles"
 run/main_scene="res://Launch.tscn"
+config/features=PackedStringArray("4.2", "C#")
 config/icon="res://icon.png"
 
 [autoload]
@@ -25,21 +24,27 @@ AutoLoadGlobals="*res://AutoLoadGlobals.cs"
 
 [display]
 
+window/size/viewport_width=448
+window/size/viewport_height=720
+window/size/resizable=false
 window/size/width=448
 window/size/height=720
-window/size/resizable=false
+
+[dotnet]
+
+project/assembly_name="Picture Tiles"
 
 [gdnative]
 
-singletons=[  ]
-singletons_disabled=[  ]
+singletons=[]
+singletons_disabled=[]
 
 [input]
 
 tile_select={
 "deadzone": 0.5,
-"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
- ]
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
 }
 
 [layer_names]
@@ -53,4 +58,5 @@ profiler/enabled=true
 
 [rendering]
 
+environment/defaults/default_environment="res://default_env.tres"
 environment/default_environment="res://default_env.tres"

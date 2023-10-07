@@ -3,7 +3,7 @@ using Godot;
 
 namespace PictureTiles
 {
-    public class Tile2 : DefaultTile
+    public partial class Tile2 : DefaultTile
     {
     }
 }

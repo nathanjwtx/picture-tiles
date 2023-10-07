@@ -2,9 +2,7 @@ using System;
 using System.Globalization;
 using Godot;
 
-namespace PictureTiles
-{
-    public class HUD : CanvasLayer
+    public partial class HUD : CanvasLayer
     {
         private int _moveCounter;
         private Label _counterNode;
@@ -15,14 +13,14 @@ namespace PictureTiles
         public override void _Ready()
         {
             // Connect signals
-            AutoLoadGlobals.Instance.Connect("TileClicked", this, nameof(UpdateMoveCounter));
-            GetNode<Button>("Start").Connect("pressed", this, nameof(OnPressedStart));
-            GetNode<Button>("Main").Connect("pressed", this, nameof(OnPressedMain));
-            GetNode<Godot.Timer>("HideSolved").Connect("timeout", this, nameof(OnHideSolvedTimeout));
+            AutoLoadGlobals.GlobalsSingleton.TileClicked += UpdateMoveCounter;
+            GetNode<Button>("Start").Pressed += OnPressedStart;
+            GetNode<Button>("Main").Pressed += OnPressedMain;
+            GetNode<Timer>("HideSolved").Timeout += OnHideSolvedTimeout;
             
             _shuffleSlider = GetNode<HSlider>("SliderContainer/ShuffleSlider");
             _shuffleSlider.MinValue = AutoLoadGlobals.InitialShuffles;
-            _shuffleSlider.Connect("value_changed", this, nameof(OnShuffleSliderValueChanged));
+            _shuffleSlider.ValueChanged += OnShuffleSliderValueChanged;
 
             GetNode<CenterContainer>("SolvedContainer").Visible = false;
             _counterNode = GetNode<Label>("VBoxContainer/HBoxContainer/Moves");
@@ -31,7 +29,7 @@ namespace PictureTiles
             _shuffleLabel.Text = AutoLoadGlobals.InitialShuffles.ToString();
         }
 
-        public override void _PhysicsProcess(float delta)
+        public override void _PhysicsProcess(double delta)
         {
             // _timerStarted ensures StartTimer is only called once
             if (GetNode<CenterContainer>("SolvedContainer").Visible && !_timerStarted)
@@ -43,7 +41,7 @@ namespace PictureTiles
 
         private void StartTimer()
         {
-            GetNode<Godot.Timer>("HideSolved").Start();
+            GetNode<Timer>("HideSolved").Start();
         }
 
         private void UpdateMoveCounter()
@@ -58,15 +56,17 @@ namespace PictureTiles
             _moveCounter = 0;
             _counterNode.Text = _moveCounter.ToString();
             _timerStarted = false;
-            AutoLoadGlobals.Instance.EmitSignal("ShuffleTiles");
+            // AutoLoadGlobals.Instance.EmitSignal("ShuffleTiles");
+            AutoLoadGlobals.GlobalsSingleton.EmitSignal(nameof(AutoLoadGlobals.GlobalsSingleton.ShuffleTiles));
         }
 
         private void OnPressedMain()
         {
-            GetTree().ChangeScene(AutoLoadGlobals.TitleScene);
+            // GetTree().ChangeScene(AutoLoadGlobals.TitleScene);
+            GetTree().ChangeSceneToFile(AutoLoadGlobals.TitleScene);
         }
 
-        private void OnShuffleSliderValueChanged(float value)
+        private void OnShuffleSliderValueChanged(double value)
         {
             _shuffleLabel.Text = value.ToString(CultureInfo.InvariantCulture);
             AutoLoadGlobals.InitialShuffles = (int) value;
@@ -77,8 +77,3 @@ namespace PictureTiles
             GetNode<CenterContainer>("SolvedContainer").Visible = false;
         }
     }
-}
-
-
-
-

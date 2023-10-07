@@ -2,7 +2,7 @@ using Godot;
 
 namespace PictureTiles
 {
-    public class ClickAudio : Node
+    public partial class ClickAudio : Node
     {
         // Declare member variables here. Examples:
         // private int a = 2;

@@ -1,32 +1,32 @@
 using Godot;
 
-namespace PictureTiles
+public partial class Title : Node
 {
-    public class Title : Node
+    private Button ThreeButton { get; set; }
+    private Button FourButton { get; set; }
+
+    public override void _Ready()
     {
-        public override void _Ready()
-        {
-            GetNode<Button>("Three").Connect("pressed", this, nameof(LevelPressed), 
-                new Godot.Collections.Array() {AutoLoadGlobals.ThreeByThree} );
-            GetNode<Button>("Four").Connect("pressed", this, nameof(LevelPressed),
-                new Godot.Collections.Array() {AutoLoadGlobals.FourByFour});
-        }
+        ThreeButton = GetNode<Button>("GridContainer/HBoxContainer/VBoxContainer/Three");
+        FourButton = GetNode<Button>("GridContainer/HBoxContainer/VBoxContainer/Four");
+        
+        ThreeButton.Pressed += OnLevelThreePressed;
+        FourButton.Pressed += OnLevelFourPressed;
+    }
 
-        private void LevelPressed(string level)
-        {
-            if (level == AutoLoadGlobals.ThreeByThree)
-            {
-                AutoLoadGlobals.InitialShuffles = 10;
-                GetNode<Button>("Four").Disabled = true;
-            }
-            else
-            {
-                AutoLoadGlobals.InitialShuffles = 20;
-                GetNode<Button>("Three").Disabled = true;
-            }
+    private void OnLevelThreePressed()
+    {
+        AutoLoadGlobals.InitialShuffles = 10;
+        ThreeButton.Disabled = true;
 
-            GetTree().ChangeScene(AutoLoadGlobals.MainScene);
-            AutoLoadGlobals.LevelToLoad = level;
-        }
+        GetTree().ChangeSceneToFile(AutoLoadGlobals.ThreeByThree);
+    }
+
+    private void OnLevelFourPressed()
+    {
+        AutoLoadGlobals.InitialShuffles = 20;
+        FourButton.Disabled = true;
+
+        GetTree().ChangeSceneToFile(AutoLoadGlobals.FourByFour);
     }
 }

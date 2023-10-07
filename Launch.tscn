@@ -1,16 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://c2aa31ianhc5h"]
 
-[ext_resource path="res://Launch.cs" type="Script" id=1]
-[ext_resource path="res://assets/godot-logo.png" type="Texture" id=2]
+[ext_resource type="Script" path="res://Launch.cs" id="1"]
+[ext_resource type="Texture2D" uid="uid://bcrrgr83w702v" path="res://assets/godot-logo.png" id="2"]
 
 [node name="Launch" type="Node"]
-script = ExtResource( 1 )
+script = ExtResource("1")
 
-[node name="GodotLogo" type="Sprite" parent="."]
-position = Vector2( 224, 352 )
-scale = Vector2( 0.4375, 0.4375 )
-texture = ExtResource( 2 )
+[node name="GodotLogo" type="Sprite2D" parent="."]
+position = Vector2(224, 352)
+scale = Vector2(0.4375, 0.4375)
+texture = ExtResource("2")
 
 [node name="ShowTitle" type="Timer" parent="."]
 one_shot = true
-autostart = true

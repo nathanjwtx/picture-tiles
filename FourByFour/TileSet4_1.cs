@@ -1,6 +1,6 @@
 namespace PictureTiles
 {
-    public class TileSet4_1 : DefaultTile
+    public partial class TileSet4_1 : DefaultTile
     {
     }
 }
